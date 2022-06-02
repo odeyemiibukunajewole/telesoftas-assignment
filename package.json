@@ -1,0 +1,35 @@
+{
+  "name": "telesoftas-assignment",
+  "version": "1.0.0",
+  "description": "NodeJS home assignment - Gilded Rose refactoring",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec babel-node index.js",
+    "build": "babel src -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/odeyemiibukunajewole/telesoftas-assignment.git"
+  },
+  "author": "Odeyemi Ibukun Ajewole",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/odeyemiibukunajewole/telesoftas-assignment/issues"
+  },
+  "homepage": "https://github.com/odeyemiibukunajewole/telesoftas-assignment#readme",
+  "devDependencies": {
+    "@types/jest": "^28.1.0",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1",
+    "@babel/cli": "^7.15.4",
+    "@babel/core": "^7.15.5",
+    "@babel/node": "^7.15.4",
+    "@babel/preset-env": "^7.15.6"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "nodemon": "^2.0.12"
+  }
+}
