@@ -1,25 +1,37 @@
 import Axios from "axios";
+import path from "path";
 
-
-class apiCall {
+const dirname = path.dirname(__dirname)
+console.log(dirname)
+class thirdPartyService {
   static async parallelCall(numberOfCalls, endpoint) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        let Urls = [];
+        let firstcall = 1;
 
-    let Urls = [];
-    let result = [];
-    let firstcall = 1;
+        while (firstcall <= numberOfCalls) {
 
-    while (numberOfCalls <= numberOfCalls) {
-      promises.push(endpoint);
-      firstcall++;
-    }
+          Urls.push(endpoint);
+          firstcall++;
+        }
+        console.log(JSON.stringify(Urls))
+        let data = ""
+        let result = await Promise.all(Urls.map((url) => Axios.get(url))).then(
+          Axios.spread((...allData) => {
+            // resolve(allData)
 
-    const responses = await Promise.allSettled(
-      Urls.map(async url => {
-        const res = await Axios.get(url);
-      })
-    );
+          })
+        );
+
+        console.log({ result });
+        resolve(result)
+      } catch (e) {
+        reject(new Error(e))
+      }
+    })
 
   }
 }
 
-export default apiCall;
+export default thirdPartyService;
